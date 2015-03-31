@@ -1,0 +1,125 @@
+/* VERDE CLARO : 82DF12 */
+/* VERDE ESCURO : 088B1B */
+/* CINZA CLARO : E4E4E4 */
+/* CINZA ESCURO : D3D3D3 */
+
+@font-face {
+    font-family: 'Futura Light';
+    src: url('/TrixLoc/resources/fonts/Futura (Light).ttf');
+}
+
+body{
+	font-size: 16px;
+	font-family: Futura Light !important;
+	
+	overflow: hidden;
+}
+
+
+/* ----------------------------------------------------------------------------- */
+/* 							   BOOTSTRAP OVERRIDE								 */
+/* ----------------------------------------------------------------------------- */
+div.row{
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+div[class*="col-"]{
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+
+/* ----------------------------------------------------------------------------- */
+/* 								      MASKs 									 */
+/* ----------------------------------------------------------------------------- */
+.trix-mask-dark{
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	background: #000;
+
+	width: 0;
+	height: 0;
+
+	opacity: 0.60;
+
+	z-index: 100;
+}
+
+
+/* ----------------------------------------------------------------------------- */
+/* 								       DIVs 									 */
+/* ----------------------------------------------------------------------------- */
+div.trix-container-buttons{
+	margin: 20px 0px 10px 0;
+	
+	text-align: center;
+}
+
+
+/* ----------------------------------------------------------------------------- */
+/* 								     BUTTONs 									 */
+/* ----------------------------------------------------------------------------- */
+div.trix-container-buttons button{
+	color: #FFF;
+	background: #088B1B;
+	
+	margin: 0px 10px;
+	padding: 4px 16px;
+	
+	font-size: 120%;
+	font-weight: 600;
+	
+	border: 1px solid transparent;
+	border-radius: 4px;
+	-ms-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-khtml-border-radius: 4px;
+	-webkit-border-radius: 4px;
+}
+
+div.trix-container-buttons button:HOVER{
+	color: #088B1B;
+	background: #FFF;
+	
+	border-color: #088B1B;
+}
+
+
+/* ----------------------------------------------------------------------------- */
+/* 									 BORDERs									 */
+/* ----------------------------------------------------------------------------- */
+.border-light-gray{
+	border: 1px solid #DCDCDC;
+}
+
+.border-black{
+	border: 1px solid #000;
+}
+
+.border-round-4{
+	border-radius: 4px;
+	-ms-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-khtml-border-radius: 4px;
+	-webkit-border-radius: 4px;
+}
+
+.border-round-6{
+	border-radius: 6px;
+	-ms-border-radius: 6px;
+	-moz-border-radius: 6px;
+	-khtml-border-radius: 6px;
+	-webkit-border-radius: 6px;
+}
+
+.border-round-10{
+	border-radius: 10px;
+	-ms-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-khtml-border-radius: 10px;
+	-webkit-border-radius: 10px;
+}

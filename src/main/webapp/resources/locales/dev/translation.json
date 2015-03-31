@@ -1,0 +1,58 @@
+{
+	"app": {
+		"name" : "TrixLoc",
+		"title" : "TrixLoc - Manage Locations and Tags"
+	},
+	
+	"label": {
+		"location" : "location",
+		"register" : "register",
+		
+		"upper": {
+			"cancel" : "Cancel",
+			"description" : "Description",
+			"hide" : "Hide",
+			"latitude" : "Latitude",
+			"longitude" : "Longitude",
+			"marker" : "Marker",
+			"name" : "Name",
+			"refresh" : "Refresh",
+			"register" : "Register",
+			"tag" : "Tag",
+			"tags" : "Tags"
+		},
+		
+		"container": {
+			"title": {
+				"list" : "List All Locations",
+				"register" : "Register New Location"
+			}
+		}
+	},
+	
+	"img": {
+		"alt": {
+			"add.location" : "Register New Location",
+			"list.locations" : "List All locations",
+			"logo" : "TrixLoc Logo"
+		}
+	},
+	
+	"tool": {
+		"tip": {
+			"cancel" : "Click to cancel the registration",
+			"hide" : "Click to close the list",
+			"home" : "Click to go back to home",
+			"list" : "Click to list all locations registered",
+			"new" : "Click to register this location",
+			"refresh" : "Click to refresh the list",
+			"register" : "Click to register a new location"
+		}
+	},
+	
+	"validator": {
+		"msg": {
+			"required" : "Required Field(s)"
+		}
+	}
+}
