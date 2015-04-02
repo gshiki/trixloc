@@ -8,9 +8,17 @@
 		"location" : "location",
 		"register" : "register",
 		
+		"container.title": {
+			"list" : "List All Locations",
+			"register" : "Register a New Location"
+		},
+		
+		"placeholder": {
+			"search" : "Search here for a location name"
+		},
+		
 		"upper": {
 			"cancel" : "Cancel",
-			"description" : "Description",
 			"hide" : "Hide",
 			"latitude" : "Latitude",
 			"longitude" : "Longitude",
@@ -20,34 +28,27 @@
 			"register" : "Register",
 			"tag" : "Tag",
 			"tags" : "Tags"
-		},
+		}
 		
-		"container": {
-			"title": {
-				"list" : "List All Locations",
-				"register" : "Register New Location"
-			}
-		}
 	},
 	
-	"img": {
-		"alt": {
-			"add.location" : "Register New Location",
-			"list.locations" : "List All locations",
-			"logo" : "TrixLoc Logo"
-		}
+	"img.alt": {
+		"add.location" : "Register New Location",
+		"list.locations" : "List All locations",
+		"logo" : "TrixLoc Logo"
 	},
 	
-	"tool": {
-		"tip": {
-			"cancel" : "Click to cancel the registration",
-			"hide" : "Click to close the list",
-			"home" : "Click to go back to home",
-			"list" : "Click to list all locations registered",
-			"new" : "Click to register this location",
-			"refresh" : "Click to refresh the list",
-			"register" : "Click to register a new location"
-		}
+	"tool.tip": {
+		"cancel" : "Click to cancel the registration",
+		"delete" : "Click to delete this location",
+		"edit" : "Click to edit this location",
+		"hide" : "Click to close the list",
+		"home" : "Click to go back to home",
+		"list" : "Click to list all locations registered",
+		"new" : "Click to register this location",
+		"refresh" : "Click to refresh the list",
+		"register" : "Click to register a new location",
+		"search" : "Click to search for a location"
 	},
 	
 	"validator": {

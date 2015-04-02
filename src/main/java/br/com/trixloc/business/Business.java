@@ -1,12 +1,12 @@
-package br.com.trixloc.dao;
+package br.com.trixloc.business;
 
-public interface DAO<T> {
-	
+public interface Business<T> {
+
 	void save(T obj);
 	void update(T obj);
 	void delete(T obj);
 	
 	T findById(int id);
 	T findByName(String name);
-
+	
 }

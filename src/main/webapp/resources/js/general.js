@@ -33,7 +33,7 @@ function exists(element) {
 function initTranslations() {
 	i18n.init( {
 		resGetPath: '/TrixLoc/resources/locales/__lng__/__ns__.json',
-		 resPostPath: '/TrixLoc/resources/locales/add/__lng__/__ns__'
+		resPostPath: '/TrixLoc/resources/locales/add/__lng__/__ns__'
 	}, function(t) {
 		_t = t;
 		translateAll(t);

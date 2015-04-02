@@ -63,7 +63,7 @@ div.trix-container-buttons{
 /* ----------------------------------------------------------------------------- */
 /* 								     BUTTONs 									 */
 /* ----------------------------------------------------------------------------- */
-div.trix-container-buttons button{
+div.trix-container-buttons button.trix-button{
 	color: #FFF;
 	background: #088B1B;
 	
@@ -81,7 +81,7 @@ div.trix-container-buttons button{
 	-webkit-border-radius: 4px;
 }
 
-div.trix-container-buttons button:HOVER{
+div.trix-container-buttons buttontrix-button:HOVER{
 	color: #088B1B;
 	background: #FFF;
 	

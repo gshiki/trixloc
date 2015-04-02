@@ -22,7 +22,6 @@ function Marker(id) {
 	this.lng = CONS_MAP_CENTER_LNG;
 	this.icon = CONS_MAP_ICON_GREEN;
 	this.name = _t('label.upper.marker');
-	this.description = '';
 	this.dateCreated = '00/00/0000';
 	this.tags = new Array();
 }

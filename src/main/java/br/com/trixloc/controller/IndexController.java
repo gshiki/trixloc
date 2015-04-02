@@ -13,7 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class IndexController {
 	
 	@RequestMapping( method = RequestMethod.GET )
-	protected ModelAndView index(HttpServletRequest req, HttpServletResponse res) {
+	public ModelAndView index(HttpServletRequest req, HttpServletResponse res) {
 		ModelAndView model = new ModelAndView("index");
 		return model;
 	}

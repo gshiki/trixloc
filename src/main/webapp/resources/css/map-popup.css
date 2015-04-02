@@ -6,7 +6,7 @@
 /* ----------------------------------------------------------------------------- */
 /* 								      DIVs 										 */
 /* ----------------------------------------------------------------------------- */
-div#element-container-map-popup{
+div[id*="element-container-map-popup"]{
 	display: none;
 	
 	position: absolute;
@@ -35,14 +35,14 @@ div#element-container-map-popup{
 	z-index: 110;
 }
 
-div#element-container-map-popup:HOVER{
+div[id*="element-container-map-popup"]:HOVER{
 	opacity: 1.0;
 }
 
 
 /* --------------------------- MAP POPUP MESSAGES ------------------------------- */
-div.trix-map-popup-list div#element-container-messages,
-div.trix-map-popup-register div#element-container-messages
+div.trix-map-popup-list div[id*="element-container-messages"],
+div.trix-map-popup-register div[id*="element-container-messages"]
 {
 	margin: 10px 0px 10px 0px;
 	padding: 4px 4px 4px 4px;
@@ -50,13 +50,61 @@ div.trix-map-popup-register div#element-container-messages
 	text-align: center;
 }
 
-div.trix-map-popup-list div#element-container-messages span,
-div.trix-map-popup-register div#element-container-messages span
+div.trix-map-popup-list div[id*="element-container-messages"] span,
+div.trix-map-popup-register div[id*="element-container-messages"] span
 {
 	color: #505050;
 	
 	font-size: 120%;
 	font-weight: 600;
+}
+
+
+/* -------------------------- MAP POPUP SEARCH --------------------------------- */
+div.trix-map-popup-search{
+	text-align: center;
+	
+	margin: 10px 0px 10px 0px;
+}
+
+
+/* --------------------------- MAP POPUP LIST ---------------------------------- */
+div.trix-map-popup-container-list div.trix-container-list-item{
+	width: 96%;
+	max-height: 250px;
+	
+	background: #ECECEC;
+	
+	margin: 0 0 0 10px;
+	
+	border: 1px solid #C5C5C5;
+	border-radius: 4px;
+	-ms-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-khtml-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	
+	overflow: auto;
+}
+
+div.trix-map-popup-container-list div.trix-container-list-item div.trix-container-item-name{
+	color: #000;
+	
+	padding: 4px 4px 4px 10px;
+	
+	border-right: 1px solid #C5C5C5;
+}
+
+div.trix-map-popup-container-list div.trix-container-list-item div.trix-container-item-name:HOVER{
+	cursor: pointer;
+	
+	text-decoration: underline;
+}
+
+div.trix-map-popup-container-list div.trix-container-list-item div.trix-container-item-buttons{
+	text-align: center;
+	
+	padding: 10px 0 0 0;
 }
 
 
@@ -119,6 +167,25 @@ div.trix-map-popup-row div.trix-map-popup-col-right input{
 	font-size: 110%;
 }
 
+div.trix-map-popup-search input{
+	position: relative;
+	top: -14px;
+	
+	font-size: 148%;
+	
+	width: 80%;
+	
+	border-color: #C5C5C5;
+	border-radius: 4px;
+	-ms-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-khtml-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	
+	margin: 0px 10px 0px 0px;
+	padding: 2px 0px 4px 4px;
+}
+
 
 /* ----------------------------------------------------------------------------- */
 /* 								    TEXTAREAs 									 */
@@ -138,4 +205,47 @@ div.trix-map-popup-row div.trix-map-popup-col-right textarea{
 	font-size: 110%;
 	
 	resize: none;
+}
+
+
+/* ----------------------------------------------------------------------------- */
+/* 								     BUTTONs 									 */
+/* ----------------------------------------------------------------------------- */
+div.trix-map-popup-search button.trix-button.trix-button-search{
+	color: transparent;
+	background: url("/TrixLoc/resources/images/search-icon.png");
+	background-position: center center;
+	background-repeat: no-repeat;
+
+	width: 48px;
+	height: 48px;	
+	
+	border: 1px solid transparent;
+	border-radius: 4px;
+	-ms-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-khtml-border-radius: 4px;
+	-webkit-border-radius: 4px;
+}
+
+div.trix-container-list-item div.trix-container-item-buttons button.trix-button-edit{
+	width: 30px;
+	height: 30px;
+	
+	margin: 0 0 0 4px;
+	
+	background: url("/TrixLoc/resources/images/edit-icon.png");
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+div.trix-container-list-item div.trix-container-item-buttons button.trix-button-delete{
+	width: 30px;
+	height: 30px;
+	
+	margin: 0 0 0 4px;
+	
+	background: url("/TrixLoc/resources/images/delete-icon.png");
+	background-position: center center;
+	background-repeat: no-repeat;
 }
