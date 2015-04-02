@@ -8,9 +8,11 @@
 		"location" : "location",
 		"register" : "register",
 		
-		"container.title": {
-			"list" : "List All Locations",
-			"register" : "Register a New Location"
+		"container": {
+			"title": {
+				"list" : "List All Locations",
+				"register" : "Register a New Location"
+			}
 		},
 		
 		"placeholder": {
@@ -32,23 +34,34 @@
 		
 	},
 	
-	"img.alt": {
-		"add.location" : "Register New Location",
-		"list.locations" : "List All locations",
-		"logo" : "TrixLoc Logo"
+	"img": {
+		"alt": {
+			"logo" : "TrixLoc Logo",
+
+			"add": {
+				"location" : "Register New Location"
+			},
+
+			"list": {
+				"locations" : "List All locations"
+			}
+		}
+		
 	},
 	
-	"tool.tip": {
-		"cancel" : "Click to cancel the registration",
-		"delete" : "Click to delete this location",
-		"edit" : "Click to edit this location",
-		"hide" : "Click to close the list",
-		"home" : "Click to go back to home",
-		"list" : "Click to list all locations registered",
-		"new" : "Click to register this location",
-		"refresh" : "Click to refresh the list",
-		"register" : "Click to register a new location",
-		"search" : "Click to search for a location"
+	"tool": {
+		"tip": {
+			"cancel" : "Click to cancel the registration",
+			"delete" : "Click to delete this location",
+			"edit" : "Click to edit this location",
+			"hide" : "Click to close the list",
+			"home" : "Click to go back to home",
+			"list" : "Click to list all locations registered",
+			"new" : "Click to register this location",
+			"refresh" : "Click to refresh the list",
+			"register" : "Click to register a new location",
+			"search" : "Click to search for a location"
+		}
 	},
 	
 	"validator": {

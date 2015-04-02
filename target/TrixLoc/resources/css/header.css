@@ -1,0 +1,147 @@
+/* VERDE CLARO : 82DF12 */
+/* VERDE ESCURO : 088B1B */
+/* CINZA CLARO : E4E4E4 */
+/* CINZA ESCURO : D3D3D3 */
+
+/* ----------------------------------------------------------------------------- */
+/* 							   BOOTSTRAP OVERRIDE								 */
+/* ----------------------------------------------------------------------------- */
+nav.navbar-default{
+	background: transparent;
+	border-color: transparent;
+	
+	box-shadow: none;
+	
+	margin-bottom: 0px;	
+}
+
+nav.navbar-default a.navbar-brand{
+	color: #808080;
+	
+	font-size: 250%;
+	font-weight: 900;
+}
+
+button.navbar-toggle{
+	background: #FFF !important;
+	border-width: 2px;
+	border-color: #808080 !important;
+}
+
+button.navbar-toggle span.icon-bar{
+	background: #D3D3D3;
+}
+
+button.navbar-toggle:HOVER{
+	background: #D3D3D3 !important;
+	border-color: #808080 !important;
+}
+
+button.navbar-toggle:HOVER span.icon-bar{
+	background: #FFF;
+}
+
+ul.navbar-nav li{
+	margin-right: 30px;
+	margin-bottom: 10px;
+	
+	border: 1px solid transparent;
+}
+
+ul.navbar-nav li a{
+	color: #808080 !important;
+	background: transparent !important;
+	text-align: center;
+	
+	font-size: 220%;
+	font-weight: 900;
+	
+	margin: 14px 0 0 0;
+	padding: 0 0 0 0;
+}
+
+ul.navbar-nav li a img{
+	width: 48px;
+	height: 48px;
+}
+
+ul.navbar-nav li.active a{
+	color: #808080 !important;
+}
+
+ul.navbar-nav li:HOVER a img{
+	position: relative;
+	top: -2px;
+}
+
+
+/* ----------------------------------------------------------------------------- */
+/* 								      DIVs 										 */
+/* ----------------------------------------------------------------------------- */
+div.trix-container-top{
+	background: #E4E4E4;
+	background: -moz-linear-gradient(top, #FFFFFF 0%, #E4E4E4 80%, #D3D3D3 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFFFFF), color-stop(80%,#E4E4E4), color-stop(100%,#D3D3D3));
+	background: -webkit-linear-gradient(top, #FFFFFF 0%, #E4E4E4 80%, #D3D3D3 100%);
+	background: -o-linear-gradient(top, #FFFFFF 0%, #E4E4E4 80%,#D3D3D3 100%);
+	background: -ms-linear-gradient(top, #FFFFFF 0%, #E4E4E4 80%,#D3D3D3 100%);
+	background: linear-gradient(to bottom, #FFFFFF 0%, #E4E4E4 80%,#D3D3D3 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF', endColorstr='#D3D3D3',GradientType=0);
+	
+	border-bottom: 1px solid #000;
+	
+	margin: 0 0 0 0;
+	padding: 4px 4px 4px 4px;
+}
+
+div.trix-container-logo{
+	text-align: center;
+	
+	margin-top: 10px;
+}
+
+div.trix-container-logo div.trix-container-logo-lnk{
+	text-align: left;
+}
+
+
+/* ----------------------------------------------------------------------------- */
+/* 								      IMGs 										 */
+/* ----------------------------------------------------------------------------- */
+div.trix-container-logo div.trix-container-logo-img a.trix-logo-img img{
+	width: 100%;
+	height: 50px;
+	
+	text-align: right;	
+}
+
+
+/* ----------------------------------------------------------------------------- */
+/* 								      LINKs 									 */
+/* ----------------------------------------------------------------------------- */
+div.trix-container-logo div.trix-container-logo-img a.trix-logo-img{
+	padding-left: 10px;
+}
+
+div.trix-container-logo div.trix-container-logo-img a.trix-logo-img:HOVER{
+	text-decoration: none;
+}
+
+div.trix-container-logo div.trix-container-logo-lnk a.trix-logo-lnk{
+	color: #808080;
+	
+	font-size: 300%;
+	font-weight: 900;
+	
+	padding-left: 20px;
+}
+
+div.trix-container-logo div.trix-container-logo-lnk a.trix-logo-lnk:HOVER{
+	text-decoration: none;
+}
+
+
+/* ----------------------------------------------------------------------------- */
+/* 								      SPANs 									 */
+/* ----------------------------------------------------------------------------- */
+

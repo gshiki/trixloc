@@ -16,8 +16,8 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @EnableWebMvc
 @Configuration
-@ComponentScan( basePackages="br.com.trixloc" )
-public class SpringConfiguration extends WebMvcConfigurerAdapter{
+@ComponentScan(basePackages="br.com.trixloc")
+public class SpringConfiguration extends WebMvcConfigurerAdapter {
 
 	@Bean
 	public ViewResolver getViewResolver() {
@@ -38,7 +38,6 @@ public class SpringConfiguration extends WebMvcConfigurerAdapter{
 
 	@Bean
 	public SessionLocaleResolver sessionLocaleResolver() {
-		
 	    SessionLocaleResolver localeResolver = new SessionLocaleResolver();
 	    
 	    localeResolver.setDefaultLocale(new Locale("pt-br", "pt_BR"));

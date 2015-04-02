@@ -8,9 +8,11 @@
 		"location" : "localiza\u00E7\u00E3o",
 		"register" : "cadastrar",
 		
-		"container.title": {
-			"list" : "Listar Todas as Localiza\u00E7\u00F5es",
-			"register" : "Cadastrar Nova Localiza\u00E7\u00E3o"
+		"container": {
+			"title": {
+				"list" : "Listar Todas as Localiza\u00E7\u00F5es",
+				"register" : "Cadastrar Nova Localiza\u00E7\u00E3o"
+			}
 		},
 		
 		"placeholder": {
@@ -29,26 +31,35 @@
 			"tag" : "Tag",
 			"tags" : "Tags"
 		}
-		
 	},
 	
-	"img.alt": {
-		"add.location" : "Cadastrar Nova Localiza\u00E7\u00E3o",
-		"list.locations" : "Listar Todas as Localiza\u00E7\u00F5es",
-		"logo" : "TrixLoc Logo"
+	"img": {
+		"logo" : "TrixLoc Logo",
+
+		"alt": {
+			"add": {
+				"location" : "Register New Location"
+			},
+
+			"list": {
+				"locations" : "List All locations"
+			}
+		}
 	},
 	
-	"tool.tip": {
-		"cancel" : "Clique para cancelar o cadastro",
-		"delete" : "Clique para excluir esta localiza\u00E7\u00E3o",
-		"edit" : "CClique para editar esta localiza\u00E7\u00E3o",
-		"hide" : "Clique para fechar a lista",
-		"home" : "Clique para voltar para o in\u00EDcio",
-		"list" : "Clique para listar todas as localiza\u00E7\u00F5es cadastradas",
-		"new" : "Clique para cadastrar essa localiza\u00E7\u00E3o",
-		"refresh" : "Clique para cadastrar uma nova localiza\u00E7\u00E3o",
-		"register" : "Click to register a new location",
-		"search" : "Clique para buscar uma localiza\u00E7\u00E3o"
+	"tool": {
+		"tip": {
+			"cancel" : "Clique para cancelar o cadastro",
+			"delete" : "Clique para excluir esta localiza\u00E7\u00E3o",
+			"edit" : "CClique para editar esta localiza\u00E7\u00E3o",
+			"hide" : "Clique para fechar a lista",
+			"home" : "Clique para voltar para o in\u00EDcio",
+			"list" : "Clique para listar todas as localiza\u00E7\u00F5es cadastradas",
+			"new" : "Clique para cadastrar essa localiza\u00E7\u00E3o",
+			"refresh" : "Clique para cadastrar uma nova localiza\u00E7\u00E3o",
+			"register" : "Click to register a new location",
+			"search" : "Clique para buscar uma localiza\u00E7\u00E3o"
+		}
 	},
 	
 	"validator": {
