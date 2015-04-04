@@ -1,43 +1,37 @@
 package br.com.trixloc.dao.impl;
 
-import javax.transaction.Transactional;
+import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import br.com.trixloc.dao.DAO;
 import br.com.trixloc.model.Tag;
 
 @Repository("daoTag")
-public class TagDAOImpl implements DAO<Tag> {
+public class TagDAOImpl extends DAOImpl<Tag> {
 
 	@Override
-	@Transactional
-	public void save(Tag obj) {
-		
+	public void save(Tag tag) {
+		super.save(tag);
 	}
 
 	@Override
-	@Transactional
-	public void update(Tag obj) {
-		// TODO Auto-generated method stub
+	public void update(Tag tag) {
+		super.update(tag);
 	}
 
 	@Override
-	@Transactional
-	public void delete(Tag obj) {
-		// TODO Auto-generated method stub
+	public void delete(Tag tag) {
+		super.delete(tag);
 	}
 
 	@Override
 	public Tag findById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return super.findById(id);
 	}
 
 	@Override
-	public Tag findByName(String name) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Tag> findByName(String name) {
+		return super.findByName(name);
 	}
 	
 }

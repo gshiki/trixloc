@@ -30,10 +30,16 @@ public class HibernateUtil {
 	}
 	
 	public static Session getHibernateSession() {
+		if (sessionFactory == null) {
+			sessionFactory = createSessionFactory();
+		}
 		return sessionFactory.getCurrentSession();
 	}
 
 	public static SessionFactory getSessionFactory() {
+		if (sessionFactory == null) {
+			sessionFactory = createSessionFactory();
+		}
 	    return sessionFactory;
 	}
 }

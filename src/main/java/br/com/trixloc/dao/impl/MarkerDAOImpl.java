@@ -1,43 +1,37 @@
 package br.com.trixloc.dao.impl;
 
-import javax.transaction.Transactional;
+import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import br.com.trixloc.dao.DAO;
 import br.com.trixloc.model.Marker;
 
 @Repository("daoMarker")
-public class MarkerDAOImpl implements DAO<Marker> {
+public class MarkerDAOImpl extends DAOImpl<Marker> {
 
 	@Override
-	@Transactional
 	public void save(Marker marker) {
-		// TODO Auto-generated method stub
+		super.save(marker);
 	}
 
 	@Override
-	@Transactional
 	public void update(Marker marker) {
-		// TODO Auto-generated method stub
+		super.update(marker);
 	}
 
 	@Override
-	@Transactional
 	public void delete(Marker marker) {
-		// TODO Auto-generated method stub
+		super.delete(marker);
 	}
 
 	@Override
 	public Marker findById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return super.findById(id);
 	}
 
 	@Override
-	public Marker findByName(String name) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Marker> findByName(String name) {
+		return super.findByName(name);
 	}
 
 }

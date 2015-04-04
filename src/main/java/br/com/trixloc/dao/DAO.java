@@ -1,5 +1,7 @@
 package br.com.trixloc.dao;
 
+import java.util.List;
+
 public interface DAO<T> {
 	
 	void save(T obj);
@@ -7,6 +9,6 @@ public interface DAO<T> {
 	void delete(T obj);
 	
 	T findById(int id);
-	T findByName(String name);
+	List<T> findByName(String name);
 
 }
