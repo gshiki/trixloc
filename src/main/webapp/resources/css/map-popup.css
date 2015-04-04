@@ -6,7 +6,7 @@
 /* ----------------------------------------------------------------------------- */
 /* 								      DIVs 										 */
 /* ----------------------------------------------------------------------------- */
-div[id*="element-container-map-popup"]{
+div#trix-container-map-popup{
 	display: none;
 	
 	position: absolute;
@@ -20,8 +20,8 @@ div[id*="element-container-map-popup"]{
 	background: #FFF;
 	
 	border-top: 1px solid #808080;
-	border-bottom: 1px solid #808080;
 	border-left: 1px solid #808080;
+	border-bottom: 1px solid #808080;
 	border-radius: 10px 0px 0px 10px;
 	-ms-border-radius: 10px 0px 0px 10px;
 	-moz-border-radius: 10px 0px 0px 10px;
@@ -35,14 +35,14 @@ div[id*="element-container-map-popup"]{
 	z-index: 110;
 }
 
-div[id*="element-container-map-popup"]:HOVER{
+div#trix-container-map-popup:HOVER{
 	opacity: 1.0;
 }
 
 
 /* --------------------------- MAP POPUP MESSAGES ------------------------------- */
-div.trix-map-popup-list div[id*="element-container-messages"],
-div.trix-map-popup-register div[id*="element-container-messages"]
+div.trix-map-popup-list div#trix-container-messages,
+div.trix-map-popup-register div#trix-container-messages
 {
 	margin: 10px 0px 10px 0px;
 	padding: 4px 4px 4px 4px;
@@ -50,8 +50,8 @@ div.trix-map-popup-register div[id*="element-container-messages"]
 	text-align: center;
 }
 
-div.trix-map-popup-list div[id*="element-container-messages"] span,
-div.trix-map-popup-register div[id*="element-container-messages"] span
+div.trix-map-popup-list div#trix-container-messages span,
+div.trix-map-popup-register div#trix-container-messages span
 {
 	color: #505050;
 	

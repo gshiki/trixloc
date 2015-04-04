@@ -44,11 +44,11 @@ function initMap() {
 		icon : CONS_MAP_ICON_SHADOW
 	});
 	
-	var $elementContainerMap = $('#element-container-map');
-	var $elementContainerHeader = $('#element-container-header');
+	var $elementContainerMap = $('#trix-container-map');
+	var $elementContainerHeader = $('#trix-elmt-container-header');
 	
 	if (exists($elementContainerMap)) {
-		var map = new google.maps.Map(document.getElementById('element-container-map'), mapProp);
+		var map = new google.maps.Map(document.getElementById('trix-container-map'), mapProp);
 		var windowHeight = $(window).height();
 		var headerHeight= $elementContainerHeader.height();
 		

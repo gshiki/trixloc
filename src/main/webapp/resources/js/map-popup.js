@@ -3,6 +3,9 @@
 /* 									     VARIAVEIS E CONSTANTES										 */
 /* ************************************************************************************************* */
 /* ************************************************************************************************* */
+var CONS_MAP_POPUP_TOP_MULTIPLIER = 0.06;
+var CONS_MAP_POPUP_WIDTH_MULTIPLIER = 0.44;
+var CONS_MAP_POPUP_HEIGHT_MULTIPLIER = 0.88;
 
 
 /* ************************************************************************************************* */
@@ -34,12 +37,10 @@ function initAction($elementAction) {
 	if (exists($elementAction)) {
 		var action = $elementAction.attr('action');
 
-		if (action == 'submit') {
+		if (action == 'register') {
 			$elementAction.click( { elementFired : $elementAction }, registerMarker );
 		} else if (action == 'hide') {
-			var typePopup = $elementAction.val();
-			
-			$elementAction.click( function() { hideMapPopup(typePopup); } );
+			$elementAction.click( function() { hideMapPopup(); } );
 		} else if (action == 'refresh') {
 			$elementAction.click( function() { alert('ATUALIZAR') } );
 		} else if (action == 'search') {
@@ -80,11 +81,11 @@ function showMessageMapPopup(message, popup, type) {
  */
 function showMapPopup(event) {
 	var $elementFired = event.data.element;
-	var $elementContainerMap = $('#element-container-map');
+	var $elementContainerMap = $('#trix-container-map');
 	
 	if (exists($elementFired) && exists($elementContainerMap)) {
 		var typePopup = $elementFired.attr('open-popup');
-		var $elementContainerMapPopup = $('#element-container-map-popup-' + typePopup);
+		var $elementContainerMapPopup = $('#trix-container-map-popup');
 		
 		if (exists($elementContainerMapPopup)) {
 			var containerMapOffset = $elementContainerMap.offset();
@@ -93,13 +94,13 @@ function showMapPopup(event) {
 			
 			if (containerMapOffset && containerMapWidth && containerMapHeight) {
 				var popupOuterWidth = $elementContainerMapPopup.outerWidth() - $elementContainerMapPopup.width();
-				var popupWidth = containerMapWidth * 0.4;
-				var popupHeihgt = containerMapHeight * 0.8;
-				var popupTop = (containerMapOffset.top + containerMapOffset.top * 0.6);
+				var popupWidth = containerMapWidth * CONS_MAP_POPUP_WIDTH_MULTIPLIER;
+				var popupHeihgt = containerMapHeight * CONS_MAP_POPUP_HEIGHT_MULTIPLIER;
+				var popupTop = (containerMapOffset.top + containerMapHeight * CONS_MAP_POPUP_TOP_MULTIPLIER);
 				var popupLeft = containerMapWidth - popupWidth - popupOuterWidth;
 				
 				$elementContainerMapPopup.width(0);
-				$elementContainerMapPopup.height(containerMapHeight * 0.8);
+				$elementContainerMapPopup.height(popupHeihgt);
 				$elementContainerMapPopup.css({
 					display: 'block',
 					position : 'absolute',
@@ -119,9 +120,9 @@ function showMapPopup(event) {
 /**
  * Faz o evento de esconder o popup.
  */
-function hideMapPopup(type) {
-	var $elementContainerMap = $('#element-container-map');
-	var $elementContainerMapPopup = $('#element-container-map-popup-' + type);
+function hideMapPopup() {
+	var $elementContainerMap = $('#trix-container-map');
+	var $elementContainerMapPopup = $('#trix-container-map-popup');
 	
 	if (exists($elementContainerMap) && exists($elementContainerMapPopup)) {
 		var containerMapWidth = $elementContainerMap.width();
@@ -130,10 +131,10 @@ function hideMapPopup(type) {
 				left : containerMapWidth + 'px',
 				width : '0px'
 			},
-			
 			'fast',
-			
 			function() {
+				$elementContainerMapPopup.remove();
+				
 				$elementContainerMapPopup.css({
 					display: 'none',
 					top: '0px',

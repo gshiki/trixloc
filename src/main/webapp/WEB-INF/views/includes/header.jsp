@@ -16,7 +16,7 @@
 	<title data-i18n="app.title"></title>
 </head>
 <body>
-	<div id="element-container-header" class="row">
+	<div id="trix-elmt-container-header" class="row">
 		<div class="trix-container-top col-xs-12 col-sm-12 col-md-12 col-lg-12">
 			<div id="element-container-logo-menu" class="row">
 				<div class="trix-container-logo hidden-xs hidden-sm col-md-3 col-lg-3">

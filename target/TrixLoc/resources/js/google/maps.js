@@ -45,7 +45,7 @@ function initMap() {
 	});
 	
 	var $elementContainerMap = $('#element-container-map');
-	var $elementContainerHeader = $('#element-container-header');
+	var $elementContainerHeader = $('#trix-elmt-container-header');
 	
 	if (exists($elementContainerMap)) {
 		var map = new google.maps.Map(document.getElementById('element-container-map'), mapProp);
