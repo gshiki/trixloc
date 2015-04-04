@@ -1,0 +1,5 @@
+# RETIRANDO O TARGET
+target/
+
+# RETIRANDO AS CONFIGURACOES DO HIBERNATE
+src/main/resources/hibernate

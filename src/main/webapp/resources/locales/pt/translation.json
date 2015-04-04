@@ -1,0 +1,70 @@
+{
+	"app": {
+		"name" : "TrixLoc",
+		"title" : "TrixLoc - Gerenciamento de Localiza\u00E7\u00F5es e Tags"
+	},
+	
+	"label": {
+		"location" : "localiza\u00E7\u00E3o",
+		"register" : "cadastrar",
+		
+		"container": {
+			"title": {
+				"list" : "Listar Todas as Localiza\u00E7\u00F5es",
+				"register" : "Cadastrar Nova Localiza\u00E7\u00E3o"
+			}
+		},
+		
+		"placeholder": {
+			"search" : "Busque aqui por um nome de marcador"
+		},
+		
+		"upper": {
+			"cancel" : "Cancelar",
+			"hide" : "Fechar",
+			"latitude" : "Latitude",
+			"longitude" : "Longitude",
+			"marker" : "Marcador",
+			"name" : "Nome",
+			"refresh" : "Atualizar",
+			"register" : "Cadastrar",
+			"tag" : "Tag",
+			"tags" : "Tags"
+		}
+	},
+	
+	"img": {
+		"logo" : "TrixLoc Logo",
+
+		"alt": {
+			"add": {
+				"location" : "Register New Location"
+			},
+
+			"list": {
+				"locations" : "List All locations"
+			}
+		}
+	},
+	
+	"tool": {
+		"tip": {
+			"cancel" : "Clique para cancelar o cadastro",
+			"delete" : "Clique para excluir esta localiza\u00E7\u00E3o",
+			"edit" : "Clique para editar esta localiza\u00E7\u00E3o",
+			"hide" : "Clique para fechar a lista",
+			"home" : "Clique para voltar para o in\u00EDcio",
+			"list" : "Clique para listar todas as localiza\u00E7\u00F5es cadastradas",
+			"new" : "Clique para cadastrar essa localiza\u00E7\u00E3o",
+			"refresh" : "Clique para cadastrar uma nova localiza\u00E7\u00E3o",
+			"register" : "Clique para cadastrar uma nova localiza\u00E7\u00E3o",
+			"search" : "Clique para buscar uma localiza\u00E7\u00E3o"
+		}
+	},
+	
+	"validator": {
+		"msg": {
+			"required" : "Campo(s) Obrigat\u00F3rio(s)"
+		}
+	}
+}
