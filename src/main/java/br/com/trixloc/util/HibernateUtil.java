@@ -10,7 +10,6 @@ import org.hibernate.service.ServiceRegistry;
 
 public class HibernateUtil {
 	
-	private static ServiceRegistry serviceRegistry;
 	private static SessionFactory sessionFactory = createSessionFactory();
 	
 	public static SessionFactory createSessionFactory() {
@@ -21,8 +20,7 @@ public class HibernateUtil {
 	    if (configFile.exists()) {
 	    	configuration.configure(configFile);
 	    	
-	    	serviceRegistry = new StandardServiceRegistryBuilder().applySettings(
-	    			configuration.getProperties()).build();
+	    	ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
 	    	
 	    	sessionFactory = configuration.buildSessionFactory(serviceRegistry);
 	    }
