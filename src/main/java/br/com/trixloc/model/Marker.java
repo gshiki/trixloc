@@ -47,7 +47,7 @@ public class Marker implements Serializable {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dateCreated;
 	
-	@ManyToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
+	@ManyToMany(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
 	@JoinTable(name="t003_markers_tags", catalog="trixloc", schema="public", 
 		joinColumns = { 
 			@JoinColumn(name="d003_marker_id", nullable=false, updatable=false) 

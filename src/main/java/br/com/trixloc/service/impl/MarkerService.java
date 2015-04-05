@@ -1,6 +1,7 @@
 package br.com.trixloc.service.impl;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,30 +24,69 @@ public class MarkerService implements InterfaceService<Marker> {
 
 	@Override
 	@Transactional
-	public void save(Marker marker) {
-		markerDAO.save(marker);
+	public boolean save(Marker marker) {
+		try {
+			markerDAO.save(marker);
+		} catch (Exception e) {
+			e.printStackTrace();
+			
+			return false;
+		}
+		return true;
 	}
 
 	@Override
 	@Transactional
-	public void update(Marker marker) {
-		markerDAO.update(marker);
+	public boolean update(Marker marker) {
+		try {
+			markerDAO.update(marker);
+		} catch (Exception e) {
+			e.printStackTrace();
+			
+			return false;
+		}
+		return true;
 	}
 
 	@Override
 	@Transactional
-	public void delete(Marker marker) {
-		markerDAO.delete(marker);
+	public boolean delete(Marker marker) {
+		try {
+			markerDAO.delete(marker);
+		} catch (Exception e) {
+			e.printStackTrace();
+			
+			return false;
+		}
+		return true;
 	}
 
 	@Override
 	public Marker findById(int id) {
-		return markerDAO.findById(id);
+		try {
+			return markerDAO.findById(id);
+		} catch (Exception e) {
+			e.printStackTrace();
+			
+			return null;
+		}
 	}
 
 	@Override
 	public List<Marker> findByName(String name) {
-		return markerDAO.findByName(name);
+		try {
+			return markerDAO.findByName(name);
+		} catch (Exception e) {
+			e.printStackTrace();
+			
+			return new ArrayList<Marker>();
+		}
+	}
+
+	@Override
+	public List<Marker> list() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

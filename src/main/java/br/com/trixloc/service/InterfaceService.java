@@ -4,11 +4,14 @@ import java.util.List;
 
 public interface InterfaceService<T> {
 
-	void save(T obj);
-	void update(T obj);
-	void delete(T obj);
+	boolean save(T obj);
+	boolean update(T obj);
+	boolean delete(T obj);
 	
 	T findById(int id);
+	
 	List<T> findByName(String name);
+	
+	List<T> list();
 	
 }

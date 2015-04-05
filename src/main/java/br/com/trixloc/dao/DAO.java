@@ -4,11 +4,14 @@ import java.util.List;
 
 public interface DAO<T> {
 	
-	void save(T obj);
-	void update(T obj);
-	void delete(T obj);
+	void save(T obj) throws Exception;
+	void update(T obj) throws Exception;
+	void delete(T obj) throws Exception;
 	
-	T findById(int id);
-	List<T> findByName(String name);
+	T findById(int id) throws Exception;
+	
+	List<T> findByName(String name) throws Exception;
+	
+	List<T> list() throws Exception;
 
 }
