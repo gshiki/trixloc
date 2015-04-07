@@ -16,6 +16,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import br.com.trixloc.util.Util;
+
 @Entity
 @Table(name="t002_tag", catalog="trixloc", schema="public")
 public class Tag implements Serializable {
@@ -74,14 +76,14 @@ public class Tag implements Serializable {
 		this.markers = markers;
 	}
 
-	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result
 				+ ((dateCreated == null) ? 0 : dateCreated.hashCode());
-		result = prime * result + (int) (id ^ (id >>> 32));
+		result = prime * result + id;
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		return result;
 	}
 
@@ -101,7 +103,25 @@ public class Tag implements Serializable {
 			return false;
 		if (id != other.id)
 			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
 		return true;
+	}
+
+	/**
+	 * Converte um objeto Tag para formato JSON String.
+	 * @return
+	 */
+	public String toStringJSON() {
+		String toJSON = "{";
+		toJSON += "\"id\":\"" + String.valueOf(id) + "\",";
+		toJSON += "\"name\":\"" + String.valueOf(name) + "\",";
+		toJSON += "\"date\":\"" + Util.formatToSimpleDate(dateCreated) + "\"";
+		toJSON += "}";
+		return toJSON;
 	}
 
 }

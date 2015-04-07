@@ -6,4 +6,5 @@
 <link href="/TrixLoc/resources/css/general.css" rel="stylesheet" media="screen">
 <link href="/TrixLoc/resources/css/header.css" rel="stylesheet" media="screen">
 <link href="/TrixLoc/resources/css/index.css" rel="stylesheet" media="screen">
+<link href="/TrixLoc/resources/css/map.css" rel="stylesheet" media="screen">
 <link href="/TrixLoc/resources/css/map-popup.css" rel="stylesheet" media="screen">

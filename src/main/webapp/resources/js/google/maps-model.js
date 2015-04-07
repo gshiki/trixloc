@@ -14,9 +14,18 @@ var CONS_MAP_ICON_GREEN = '/TrixLoc/resources/images/map-marker-green.png';
 /* ************************************************************************************************* */
 /* ************************************************************************************************* */
 /**
+ * Representa uma mensagem para o MapPopup.
+ */
+function MessagePopup(message, type) {
+	this.message = message;
+	this.type = type;
+}
+
+/**
  * Representa um objeto Marcador.
  */
 function Marker(id) {
+	// DADOS DO OBJETO
 	this.id = id;
 	this.lat = CONS_MAP_CENTER_LAT;
 	this.lng = CONS_MAP_CENTER_LNG;
@@ -24,6 +33,8 @@ function Marker(id) {
 	this.name = _t('label.upper.marker');
 	this.dateCreated = '00/00/0000';
 	this.tags = new Array();
+	this.address = '';
+	this.info = '';
 }
 
 /**
@@ -31,4 +42,6 @@ function Marker(id) {
  */
 function Tag(id) {
 	this.id = id;
+	this.name = _t('label.upper.tag');
+	this.dateCreated = '00/00/0000';
 }

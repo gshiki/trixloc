@@ -13,17 +13,7 @@ var CONS_MAP_POPUP_HEIGHT_MULTIPLIER = 0.88;
 /* 									     		CHAMADAS											 */
 /* ************************************************************************************************* */
 /* ************************************************************************************************* */
-$(document).ready( function() {
-	var $elementsActions = $('button[action]');
-	
-	if (exists($elementsActions)) {
-		for (var indexAction = 0; indexAction < $elementsActions.length; indexAction++) {
-			var $elementAction = $($elementsActions[indexAction]);
-			
-			initAction($elementAction);
-		}
-	}
-});
+
 
 /* ************************************************************************************************* */
 /* ************************************************************************************************* */
@@ -56,22 +46,44 @@ function initAction($elementAction) {
 }
 
 /**
- * Mostra uma mensagem no popup.
- * @param message
+ * Mostra as mensagens passadas por parametros no popup.
+ * @param messages
  */
-function showMessageMapPopup(message, popup, type) {
-	var $elementContainerMessages = $('#element-container-messages-' + popup);
+function showMessageMapPopup(messages) {
+	var $elementContainerMessages = $('#trix-container-messages');
 	
 	if (exists($elementContainerMessages)) {
-		var $elementSpanMessages = $( $elementContainerMessages.find('span')[0] );
+		$elementContainerMessages.empty();
 		
-		if (exists($elementSpanMessages)) {
-			$elementSpanMessages.removeClass();
+		for (var indexMessage = 0; indexMessage < messages.length; indexMessage++) {
+			var $elementSpanMessage = buildElement('span', '', '', null);
+			var objMessage = messages[indexMessage];
 			
-			$elementSpanMessages.addClass(type);
+			$elementSpanMessage.addClass(objMessage.type);
+			$elementSpanMessage.append(objMessage.message);
 			
-			$elementSpanMessages.append(message);
+			$elementContainerMessages.append($elementSpanMessage);
 		}
+		$elementContainerMessages.css({
+			visibility : 'visible'
+		});
+		$elementContainerMessages.css({
+			opacity : '0.0'
+		});
+		$elementContainerMessages.animate({
+			opacity : '1.0'
+		}, 'slow');
+	}
+}
+
+/**
+ * Limpa todas as mensagens do popup.
+ */
+function cleanMessages() {
+	var $elementContainerMessages = $('#trix-container-messages');
+	
+	if (exists($elementContainerMessages)) {
+		$elementContainerMessages.empty();
 	}
 }
 
@@ -98,6 +110,8 @@ function showMapPopup(event) {
 				var popupHeihgt = containerMapHeight * CONS_MAP_POPUP_HEIGHT_MULTIPLIER;
 				var popupTop = (containerMapOffset.top + containerMapHeight * CONS_MAP_POPUP_TOP_MULTIPLIER);
 				var popupLeft = containerMapWidth - popupWidth - popupOuterWidth;
+				
+				buildMapPopup(typePopup);
 				
 				$elementContainerMapPopup.width(0);
 				$elementContainerMapPopup.height(popupHeihgt);
@@ -133,8 +147,6 @@ function hideMapPopup() {
 			},
 			'fast',
 			function() {
-				$elementContainerMapPopup.remove();
-				
 				$elementContainerMapPopup.css({
 					display: 'none',
 					top: '0px',

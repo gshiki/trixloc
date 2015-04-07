@@ -4,6 +4,20 @@
 		"title" : "TrixLoc - Gerenciamento de Localiza\u00E7\u00F5es e Tags"
 	},
 	
+	"img": {
+		"logo" : "TrixLoc Logo",
+
+		"alt": {
+			"add": {
+				"location" : "Register New Location"
+			},
+
+			"list": {
+				"locations" : "List All locations"
+			}
+		}
+	},
+	
 	"label": {
 		"location" : "localiza\u00E7\u00E3o",
 		"register" : "cadastrar",
@@ -22,7 +36,9 @@
 		"upper": {
 			"cancel" : "Cancelar",
 			"hide" : "Fechar",
+			"lat" : "Lat",
 			"latitude" : "Latitude",
+			"lng" : "Lng",
 			"longitude" : "Longitude",
 			"marker" : "Marcador",
 			"name" : "Nome",
@@ -33,17 +49,15 @@
 		}
 	},
 	
-	"img": {
-		"logo" : "TrixLoc Logo",
-
-		"alt": {
-			"add": {
-				"location" : "Register New Location"
-			},
-
-			"list": {
-				"locations" : "List All locations"
-			}
+	"msg": {
+		"success": {
+			"register" : "Localiza\u00E7\u00E3o cadastrada com sucesso!"
+		},
+	
+		"error": {
+			"generic" : "Ops! Tivemos um problema com esta opera\u00E7\u00E3o! Tente novamente dentro de algum tempo.",
+			"list" : "Desculpe-nos, ocorreu um erro tentando buscar a lista! Por favor, tente novamente em pouco tempo.",
+			"register" : "Desculpe-nos, ocorreu um erro tentando cadastrar essa localiza\u00E7\u00E3o! Por favor, tente novamente em pouco tempo."
 		}
 	},
 	
@@ -63,8 +77,13 @@
 	},
 	
 	"validator": {
-		"msg": {
-			"required" : "Campo(s) Obrigat\u00F3rio(s)"
+		"required" : "O campo \"__field__\" \u00E9 obrigat\u00F3rio",
+		
+		"type": {
+			"text" : "Digite apenas letras no campo \"__field__\"",
+			"number" : "Digite apenas n\u00FAmeros no campo \"__field__\"",
+			"coord" : "Digite apenas coordenadas v\u00E1lidas no campo \"__field__\". Padr\u00E3o : [N\u00FAmero],[N\u00FAmero]",
+			"csv" : "Digite apenas texto(s) com v\u00EDrgula(s) no campo \"__field__\""
 		}
 	}
 }

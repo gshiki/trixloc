@@ -24,7 +24,7 @@ $(document).ready( function() {
  * Verifica se um elemento JQuery existe no documento.
  */
 function exists(element) {
-	return element.length;
+	return element && element.length;
 }
 
 /**

@@ -66,8 +66,9 @@ public class TagService implements InterfaceService<Tag> {
 			return tagDAO.findById(id);
 		} catch (Exception e) {
 			e.printStackTrace();
+			
+			return null;
 		}
-		return null;
 	}
 
 	@Override
@@ -76,8 +77,9 @@ public class TagService implements InterfaceService<Tag> {
 			return tagDAO.findByName(name);
 		} catch (Exception e) {
 			e.printStackTrace();
+			
+			return new ArrayList<Tag>();
 		}
-		return new ArrayList<Tag>();
 	}
 
 	@Override
@@ -86,8 +88,9 @@ public class TagService implements InterfaceService<Tag> {
 			return tagDAO.list();
 		} catch (Exception e) {
 			e.printStackTrace();
+			
+			return new ArrayList<Tag>();
 		}
-		return new ArrayList<Tag>();
 	}
-
+	
 }

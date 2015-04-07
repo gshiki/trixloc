@@ -1,0 +1,76 @@
+/* VERDE : #2A993A */
+/* CINZA CLARO : E4E4E4 */
+/* CINZA ESCURO : D3D3D3 */
+
+/* ----------------------------------------------------------------------------- */
+/* 								      DIVs 										 */
+/* ----------------------------------------------------------------------------- */
+div#trix-container-map{
+	padding: 0 0 0 0;
+}
+
+div#trix-element-container-info-window div.trix-info-window-title{
+	color: #FFF;
+	background: #2A993A;
+	
+	padding: 6px 6px 6px 6px;
+	
+	text-align: center;
+}
+
+div#trix-element-container-info-window div.trix-map-info-window-row{
+	margin: 0 20px 0 20px;
+	padding: 6px 6px 6px 6px;
+	
+	text-align: center;
+	
+	border-bottom: 1px solid #2A993A;
+}
+
+div#trix-element-container-info-window div.trix-info-window-lat{
+	text-align: center;
+}
+
+div#trix-element-container-info-window div.trix-info-window-lng{
+	text-align: center;
+}
+
+div#trix-element-container-info-window div.trix-info-window-tags{
+	border-bottom: none;
+}
+
+/* ----------------------------------------------------------------------------- */
+/* 								     INPUTs 									 */
+/* ----------------------------------------------------------------------------- */
+
+/* ----------------------------------------------------------------------------- */
+/* 								     BUTTONs 									 */
+/* ----------------------------------------------------------------------------- */
+
+/* ----------------------------------------------------------------------------- */
+/* 								      SPANs 									 */
+/* ----------------------------------------------------------------------------- */
+div#trix-element-container-info-window div.trix-info-window-title span{
+	font-size: 180%;
+	font-weight: 300;
+}
+
+div#trix-element-container-info-window div.trix-info-window-address span{
+	font-size: 130%;
+	font-weight: 600;
+}
+
+div#trix-element-container-info-window div.trix-info-window-lat span{
+	font-size: 160%;
+	font-weight: 400;
+}
+
+div#trix-element-container-info-window div.trix-info-window-lng span{
+	font-size: 160%;
+	font-weight: 400;
+}
+
+div#trix-element-container-info-window div.trix-info-window-tags span{
+	font-size: 120%;
+	font-weight: 400;
+}

@@ -19,6 +19,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import br.com.trixloc.util.Util;
+
 @Entity
 @Table(name="t001_marker", catalog="trixloc", schema="public")
 public class Marker implements Serializable {
@@ -47,13 +49,13 @@ public class Marker implements Serializable {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dateCreated;
 	
-	@ManyToMany(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
+	@ManyToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
 	@JoinTable(name="t003_markers_tags", catalog="trixloc", schema="public", 
 		joinColumns = { 
-			@JoinColumn(name="d003_marker_id", nullable=false, updatable=false) 
+			@JoinColumn(name="d001_id", nullable=false, updatable=false) 
 		}, 
 		inverseJoinColumns = { 
-			@JoinColumn(name="d003_tag_id", nullable=false, updatable=false) 
+			@JoinColumn(name="d002_id", nullable=false, updatable=false) 
 		})
 	private List<Tag> tags;
 
@@ -105,7 +107,6 @@ public class Marker implements Serializable {
 	public void setTags(List<Tag> tags) {
 		this.tags = tags;
 	}
-
 	
 	@Override
 	public int hashCode() {
@@ -114,6 +115,12 @@ public class Marker implements Serializable {
 		result = prime * result
 				+ ((dateCreated == null) ? 0 : dateCreated.hashCode());
 		result = prime * result + id;
+		long temp;
+		temp = Double.doubleToLongBits(latitude);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		temp = Double.doubleToLongBits(longitude);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		return result;
 	}
 
@@ -133,7 +140,45 @@ public class Marker implements Serializable {
 			return false;
 		if (id != other.id)
 			return false;
+		if (Double.doubleToLongBits(latitude) != Double
+				.doubleToLongBits(other.latitude))
+			return false;
+		if (Double.doubleToLongBits(longitude) != Double
+				.doubleToLongBits(other.longitude))
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
 		return true;
+	}
+
+	/**
+	 * Converte um objeto Marker para formato JSON String.
+	 * @param tags
+	 * @return
+	 */
+	public String toStringJSON() {
+		String toJSON = "{";
+		toJSON += "\"id\":\"" + String.valueOf(id) + "\",";
+		toJSON += "\"lat\":\"" + String.valueOf(latitude) + "\",";
+		toJSON += "\"lng\":\"" + String.valueOf(longitude) + "\",";
+		toJSON += "\"name\":\"" + String.valueOf(name) + "\",";
+		toJSON += "\"date\":\"" + Util.formatToSimpleDate(dateCreated) + "\"";
+		if (!tags.isEmpty()) {
+			toJSON += ",";
+			toJSON += "\"tags\": [";
+			for (Tag tag : tags) {
+				toJSON += tag.toStringJSON();
+				if (tags.indexOf(tag) < tags.size() - 1) {
+					toJSON += ",";
+				}
+			}
+			toJSON += "]";
+		}
+		toJSON += "}";
+		return toJSON;
 	}
 
 }

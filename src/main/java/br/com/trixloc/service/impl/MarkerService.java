@@ -85,8 +85,13 @@ public class MarkerService implements InterfaceService<Marker> {
 
 	@Override
 	public List<Marker> list() {
-		// TODO Auto-generated method stub
-		return null;
+		try {
+			return markerDAO.list();
+		} catch (Exception e) {
+			e.printStackTrace();
+			
+			return new ArrayList<Marker>();
+		}
 	}
 
 }

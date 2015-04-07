@@ -3,9 +3,7 @@
 /* 									     VARIAVEIS E CONSTANTES										 */
 /* ************************************************************************************************* */
 /* ************************************************************************************************* */
-var CONS_MAP_CENTER = new google.maps.LatLng(-3.7407282, -38.4916115);
-var CONS_MAP_ICON_SHADOW = '/TrixLoc/resources/images/map-marker-shadow.png';
-var CONS_MAP_ICON_GREEN = '/TrixLoc/resources/images/map-marker-green.png';
+var MAP_MAIN;
 
 
 /* ************************************************************************************************* */
@@ -14,7 +12,7 @@ var CONS_MAP_ICON_GREEN = '/TrixLoc/resources/images/map-marker-green.png';
 /* ************************************************************************************************* */
 /* ************************************************************************************************* */
 $(document).ready( function() {
-	initMap();
+	initMap(false);
 });
 
 
@@ -27,35 +25,23 @@ $(document).ready( function() {
  * Inicializa o mapa do Google.
  */
 function initMap() {
-	var mapProp = {
-		center : CONS_MAP_CENTER,
-		zoom : 13,
+	var mapProperties = {
+		center : MAP_CENTER,
+		zoom : MAP_ZOOM,
 		mapTypeId : google.maps.MapTypeId.ROADMAP
 	};
-	var markerGreen = new google.maps.Marker({
-		position : CONS_MAP_CENTER,
-		icon : CONS_MAP_ICON_GREEN,
-//		animation:google.maps.Animation.BOUNCE,
-		draggable:true,
-	    title:"Drag me!"
-	});
-	var markerShadow = new google.maps.Marker({
-		position : CONS_MAP_CENTER,
-		icon : CONS_MAP_ICON_SHADOW
-	});
 	
 	var $elementContainerMap = $('#trix-container-map');
 	var $elementContainerHeader = $('#trix-elmt-container-header');
 	
 	if (exists($elementContainerMap)) {
-		var map = new google.maps.Map(document.getElementById('trix-container-map'), mapProp);
+		MAP_MAIN = new google.maps.Map(document.getElementById('trix-container-map'), mapProperties);
 		var windowHeight = $(window).height();
 		var headerHeight= $elementContainerHeader.height();
 		
 		$elementContainerMap.height(windowHeight - headerHeight);
 		
-		markerGreen.setMap(map);
-		markerShadow.setMap(map);
+		initMapMarkers();
 		
 //		google.maps.event.addListener(map, 'center_changed', function() {
 //			// 3 seconds after the center of the map has changed, pan back to the
@@ -75,4 +61,47 @@ function initMap() {
 //	      google.maps.event.trigger(markerGreen, "click");
 //	    }, 2000);
 	}
+}
+
+/**
+ * Seta os marcadores no mapa.
+ */
+function initMapMarkers() {
+	for (var indexMarker = 0; indexMarker < markers.length; indexMarker++) {
+		var marker = markers[indexMarker];
+		
+		var markerGreen = new google.maps.Marker({
+			position : new google.maps.LatLng(marker.lat, marker.lng),
+			icon : marker.icon,
+		    title: marker.name,
+		    draggable: marker.draggable
+		    
+		});
+		var markerShadow = new google.maps.Marker({
+			position : new google.maps.LatLng(marker.lat, marker.lng),
+			icon : CONS_MAP_ICON_SHADOW
+		});
+		
+		with ({ mark : marker, mkGreen : markerGreen }) {
+			initMakerInfoWindow(mark, mkGreen);
+		}
+		
+		markerGreen.setMap(MAP_MAIN);
+		markerGreen.setAnimation(google.maps.Animation.DROP);
+		markerShadow.setMap(MAP_MAIN);
+	}
+}
+
+/**
+ * Reinicia o mapa.
+ */
+function reinitMap() {
+	initMap();
+}
+
+/**
+ * Reinicia os marcadores no mapa.
+ */
+function reinitMapMarkers() {
+	initMapMarkers();
 }
