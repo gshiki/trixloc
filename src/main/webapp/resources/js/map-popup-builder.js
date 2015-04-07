@@ -171,6 +171,11 @@ function buildInfoWindow(marker) {
 }
 
 
+/* ************************************************************************************************* */
+/* ************************************************************************************************* */
+/* 									     		CADASTRO											 */
+/* ************************************************************************************************* */
+/* ************************************************************************************************* */
 /**
  * Constroi o popup do mapa de registro de marcador.
  */
@@ -328,6 +333,11 @@ function buildRegister() {
 }
 
 
+/* ************************************************************************************************* */
+/* ************************************************************************************************* */
+/* 									     		LISTAGEM											 */
+/* ************************************************************************************************* */
+/* ************************************************************************************************* */
 /**
  * Constroi o container interno da lista.
  */
@@ -419,6 +429,25 @@ function buildList() {
 	/* 								  CONTAINER MAP POPUP								 */
 	/* ********************************************************************************* */
 	$elementContainerMapPopup.append($elementContainerList);
+}
+
+/**
+ * Reconstroi o container interno da lista.
+ */
+function rebuildList(name) {
+	var $elementContainerMapPopupContent = $('#trix-container-map-popup-content');
+	
+	if (exists($elementContainerMapPopupContent)) {
+		$elementContainerMapPopupContent.empty();
+
+		var filteredMarkers = getMarkers(name);
+
+		for (var indexListMarkers = 0; indexListMarkers < filteredMarkers.length; indexListMarkers++) {
+			var listMarker = filteredMarkers[indexListMarkers];
+			
+			$elementContainerMapPopupContent.append( buildListItem(listMarker.id, listMarker.name) );
+		}
+	}
 }
 
 /**

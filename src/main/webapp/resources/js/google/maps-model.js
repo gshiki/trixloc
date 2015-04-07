@@ -35,6 +35,7 @@ function Marker(id) {
 	this.tags = new Array();
 	this.address = '';
 	this.info = '';
+	this.googleOBJ = null;
 }
 
 /**

@@ -31,12 +31,10 @@ function initAction($elementAction) {
 			$elementAction.click( { elementFired : $elementAction }, registerMarker );
 		} else if (action == 'hide') {
 			$elementAction.click( function() { hideMapPopup(); } );
-		} else if (action == 'refresh') {
-			$elementAction.click( function() { alert('ATUALIZAR') } );
 		} else if (action == 'search') {
 			$elementAction.click( { elementSearch : $elementAction }, refreshMarkersPopupList );
 		} else if (action == 'plot') {
-			$elementAction.click( function() { alert('PLOTAR') } );
+			$elementAction.click( { elementPlotter : $elementAction }, showInfoWindow );
 		} else if (action == 'edit') {
 			$elementAction.click( function() { alert('EDITAR') } );
 		} else if (action == 'delete') {
@@ -131,6 +129,10 @@ function showMapPopup(event) {
 	}
 }
 
+
+/* ************************************************************************************************* */
+/* 											   ACTION HIDE											 */
+/* ************************************************************************************************* */
 /**
  * Faz o evento de esconder o popup.
  */

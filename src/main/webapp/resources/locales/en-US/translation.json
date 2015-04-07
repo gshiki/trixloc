@@ -43,7 +43,6 @@
 			"longitude" : "Longitude",
 			"marker" : "Marker",
 			"name" : "Name",
-			"refresh" : "Refresh",
 			"register" : "Register",
 			"tag" : "Tag",
 			"tags" : "Tags"
@@ -72,7 +71,6 @@
 			"home" : "Click to go back to home",
 			"list" : "Click to list all locations registered",
 			"new" : "Click to register this location",
-			"refresh" : "Click to refresh the list",
 			"register" : "Click to register a new location",
 			"search" : "Click to search for a location"
 		}

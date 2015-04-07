@@ -35,6 +35,32 @@ function initMarkers() {
 	refreshMarkers();
 }
 
+
+/* ************************************************************************************************* */
+/* 									      ACTION PLOT | WINDOWS										 */
+/* ************************************************************************************************* */
+/**
+ * Mostra a InfoWindow do marcador passado dentro do event.data.
+ * @param event
+ */
+function showInfoWindow(event) {
+	var $elementFired = $( event.data.elementPlotter );
+	
+	if (exists($elementFired)) {
+		var id = $elementFired.attr('item-id');
+		
+		if (id) {
+			for (var indexInfoMarks = 0; indexInfoMarks < markers.length; indexInfoMarks++) {
+				var infoMark = markers[indexInfoMarks];
+				
+				if (infoMark.id == id) {
+					new google.maps.event.trigger( infoMark.googleOBJ , 'click' );
+				}
+			}
+		}
+	}
+}
+
 /**
  * Inicializa uma InfoWindow de um marcador.
  * @param marker
@@ -76,9 +102,13 @@ function getMarkers(name) {
 	var filteredMarkers = new Array();
 	
 	if (name.length) {
+		var regexp = new RegExp(name, 'i');
+		
 		for (var indexSearch = 0; indexSearch < markers.length; indexSearch++) {
-			if (marker.name.indexOf(name) > -1) {
-				filteredMarkers.push(markers[indexSearch]);
+			var mark = markers[indexSearch];
+
+			if (regexp.test(mark.name)) {
+				filteredMarkers.push(mark);
 			}
 		}
 	} else {
@@ -87,6 +117,10 @@ function getMarkers(name) {
 	return filteredMarkers;
 }
 
+
+/* ************************************************************************************************* */
+/* 											  ACTION SEARCH											 */
+/* ************************************************************************************************* */
 /**
  * Atualiza a lista de marcadores do popup.
  */
@@ -100,7 +134,7 @@ function refreshMarkersPopupList(event) {
 		if (exists($elementInputSearch)) {
 			var name = $elementInputSearch.val();
 			
-			alert(val);
+			rebuildList(name);
 		}
 	}
 }
@@ -164,6 +198,10 @@ function refreshMarkers() {
 	});
 }
 
+
+/* ************************************************************************************************* */
+/* 											  ACTION REGISTER										 */
+/* ************************************************************************************************* */
 /**
  * Realiza o cadastro de um marcador.
  * @param event

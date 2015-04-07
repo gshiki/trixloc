@@ -42,7 +42,6 @@
 			"longitude" : "Longitude",
 			"marker" : "Marcador",
 			"name" : "Nome",
-			"refresh" : "Atualizar",
 			"register" : "Cadastrar",
 			"tag" : "Tag",
 			"tags" : "Tags"
@@ -70,7 +69,6 @@
 			"home" : "Clique para voltar para o in\u00EDcio",
 			"list" : "Clique para listar todas as localiza\u00E7\u00F5es cadastradas",
 			"new" : "Clique para cadastrar essa localiza\u00E7\u00E3o",
-			"refresh" : "Clique para cadastrar uma nova localiza\u00E7\u00E3o",
 			"register" : "Clique para cadastrar uma nova localiza\u00E7\u00E3o",
 			"search" : "Clique para buscar uma localiza\u00E7\u00E3o"
 		}

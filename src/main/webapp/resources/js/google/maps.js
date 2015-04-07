@@ -82,13 +82,15 @@ function initMapMarkers() {
 			icon : CONS_MAP_ICON_SHADOW
 		});
 		
-		with ({ mark : marker, mkGreen : markerGreen }) {
-			initMakerInfoWindow(mark, mkGreen);
-		}
-		
 		markerGreen.setMap(MAP_MAIN);
 		markerGreen.setAnimation(google.maps.Animation.DROP);
 		markerShadow.setMap(MAP_MAIN);
+		
+		with ({ mark : marker, mkGreen : markerGreen }) {
+			initMakerInfoWindow(mark, mkGreen);
+			
+			mark.googleOBJ = mkGreen;
+		}
 	}
 }
 
