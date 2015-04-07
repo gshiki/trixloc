@@ -34,7 +34,7 @@ function initAction($elementAction) {
 		} else if (action == 'refresh') {
 			$elementAction.click( function() { alert('ATUALIZAR') } );
 		} else if (action == 'search') {
-			$elementAction.click( function() { alert('BUSCAR') } );
+			$elementAction.click( { elementSearch : $elementAction }, refreshMarkersPopupList );
 		} else if (action == 'plot') {
 			$elementAction.click( function() { alert('PLOTAR') } );
 		} else if (action == 'edit') {

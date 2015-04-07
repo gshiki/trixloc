@@ -67,6 +67,44 @@ function closeAllMarkersWindows() {
 	}
 }
 
+/**
+ * Retorna um array dos marcadores por nome.
+ * @param name
+ * @returns {Array}
+ */
+function getMarkers(name) {
+	var filteredMarkers = new Array();
+	
+	if (name.length) {
+		for (var indexSearch = 0; indexSearch < markers.length; indexSearch++) {
+			if (marker.name.indexOf(name) > -1) {
+				filteredMarkers.push(markers[indexSearch]);
+			}
+		}
+	} else {
+		return markers;
+	}
+	return filteredMarkers;
+}
+
+/**
+ * Atualiza a lista de marcadores do popup.
+ */
+function refreshMarkersPopupList(event) {
+	var $elementSearchFired = $( event.data.elementSearch );
+	var $elementMapPopupContent = $('#trix-container-map-popup-content');
+	
+	if (exists($elementSearchFired) && exists($elementMapPopupContent)) {
+		var $elementInputSearch = $( $elementSearchFired.parent().children('input[name="param-search"]') );
+		
+		if (exists($elementInputSearch)) {
+			var name = $elementInputSearch.val();
+			
+			alert(val);
+		}
+	}
+}
+
 
 /* ************************************************************************************************* */
 /* ************************************************************************************************* */

@@ -388,8 +388,8 @@ function buildList() {
 	/* ********************************************************************************* */
 	/* 								  LISTA DE MARCADORES								 */
 	/* ********************************************************************************* */
-	for (var indexListMarkers = 0; indexListMarkers < markers.length * 2; indexListMarkers++) {
-		var listMarker = markers[indexListMarkers % 2];
+	for (var indexListMarkers = 0; indexListMarkers < markers.length; indexListMarkers++) {
+		var listMarker = markers[indexListMarkers];
 		
 		$elementContainerMapPopupContent.append( buildListItem(listMarker.id, listMarker.name) );
 	}
