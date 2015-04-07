@@ -49,14 +49,19 @@
 	},
 	
 	"msg": {
-		"success": {
-			"register" : "Localiza\u00E7\u00E3o cadastrada com sucesso!"
+		"confirm": {
+			"edit" : "Voc\u00EA tem certeza que deseja atualizar esta localiza\u00E7\u00E3o __marker__ ?",
+			"delete" : "Voc\u00EA tem certeza que deseja excluir esta localiza\u00E7\u00E3o __marker__ ?"
 		},
-	
+		
 		"error": {
 			"generic" : "Ops! Tivemos um problema com esta opera\u00E7\u00E3o! Tente novamente dentro de algum tempo.",
 			"list" : "Desculpe-nos, ocorreu um erro tentando buscar a lista! Por favor, tente novamente em pouco tempo.",
 			"register" : "Desculpe-nos, ocorreu um erro tentando cadastrar essa localiza\u00E7\u00E3o! Por favor, tente novamente em pouco tempo."
+		},
+		
+		"success": {
+			"register" : "Localiza\u00E7\u00E3o cadastrada com sucesso!"
 		}
 	},
 	

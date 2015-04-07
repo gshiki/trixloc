@@ -42,24 +42,6 @@ function initMap() {
 		$elementContainerMap.height(windowHeight - headerHeight);
 		
 		initMapMarkers();
-		
-//		google.maps.event.addListener(map, 'center_changed', function() {
-//			// 3 seconds after the center of the map has changed, pan back to the
-//			// marker.
-//			window.setTimeout(function() {
-//				map.panTo(markerGreen.getPosition());
-//			}, 3000);
-//		});
-//		google.maps.event.addListener(markerGreen, 'click', function() {
-//			map.setZoom(8);
-//			map.setCenter(markerGreen.getPosition());
-//		});
-//		google.maps.event.addListener(map, 'mouseup', function(event) {
-//			alert(event.latLng);
-//		});
-//		setTimeout(function() {
-//	      google.maps.event.trigger(markerGreen, "click");
-//	    }, 2000);
 	}
 }
 
@@ -99,6 +81,8 @@ function initMapMarkers() {
  */
 function reinitMap() {
 	initMap();
+	
+	hideMapPopup();
 }
 
 /**

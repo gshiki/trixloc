@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
@@ -35,8 +34,8 @@ public class TagDAOImpl extends DAOImpl<Tag> {
 	public Tag findById(int id) {
 		Tag tag = null;
 		
-		SessionFactory sf = HibernateUtil.getSessionFactory();
-		Session session = sf.openSession();
+		Session session = HibernateUtil.getSession();
+		
 		try {
 			session.beginTransaction();
 			
@@ -54,6 +53,11 @@ public class TagDAOImpl extends DAOImpl<Tag> {
 			
 			ex.printStackTrace();
 		}
+		
+		if (session.isOpen()) {
+			session.close();
+		}
+		
 		return tag;
 	}
 
@@ -62,8 +66,8 @@ public class TagDAOImpl extends DAOImpl<Tag> {
 	public List<Tag> findByName(String name) {
 		List<Tag> tags = new ArrayList<Tag>();
 		
-		SessionFactory sf = HibernateUtil.getSessionFactory();
-		Session session = sf.openSession();
+		Session session = HibernateUtil.getSession();
+		
 		try {
 			session.beginTransaction();
 			
@@ -81,6 +85,11 @@ public class TagDAOImpl extends DAOImpl<Tag> {
 			
 			ex.printStackTrace();
 		}
+
+		if (session.isOpen()) {
+			session.close();
+		}
+		
 		return tags;
 	}
 
@@ -89,8 +98,8 @@ public class TagDAOImpl extends DAOImpl<Tag> {
 	public List<Tag> list() {
 		List<Tag> tags = new ArrayList<Tag>();
 		
-		SessionFactory sf = HibernateUtil.getSessionFactory();
-		Session session = sf.openSession();
+		Session session = HibernateUtil.getSession();
+		
 		try {
 			session.beginTransaction();
 			
@@ -106,6 +115,11 @@ public class TagDAOImpl extends DAOImpl<Tag> {
 			
 			ex.printStackTrace();
 		}
+		
+		if (session.isOpen()) {
+			session.close();
+		}
+		
 		return tags;
 	}
 	

@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
@@ -35,8 +34,8 @@ public class MarkerDAOImpl extends DAOImpl<Marker> {
 	public Marker findById(int id) {
 		Marker marker = null;
 		
-		SessionFactory sf = HibernateUtil.getSessionFactory();
-		Session session = sf.openSession();
+		Session session = HibernateUtil.getSession();
+		
 		try {
 			session.beginTransaction();
 			
@@ -54,6 +53,11 @@ public class MarkerDAOImpl extends DAOImpl<Marker> {
 			
 			ex.printStackTrace();
 		}
+		
+		if (session.isOpen()) {
+			session.close();
+		}
+		
 		return marker;
 	}
 
@@ -62,8 +66,8 @@ public class MarkerDAOImpl extends DAOImpl<Marker> {
 	public List<Marker> findByName(String name) {
 		List<Marker> markers = new ArrayList<Marker>();
 		
-		SessionFactory sf = HibernateUtil.getSessionFactory();
-		Session session = sf.openSession();
+		Session session = HibernateUtil.getSession();
+		
 		try {
 			session.beginTransaction();
 			
@@ -81,6 +85,11 @@ public class MarkerDAOImpl extends DAOImpl<Marker> {
 			
 			ex.printStackTrace();
 		}
+		
+		if (session.isOpen()) {
+			session.close();
+		}
+		
 		return markers;
 	}
 
@@ -89,8 +98,8 @@ public class MarkerDAOImpl extends DAOImpl<Marker> {
 	public List<Marker> list() {
 		List<Marker> markers = new ArrayList<Marker>();
 		
-		SessionFactory sf = HibernateUtil.getSessionFactory();
-		Session session = sf.openSession();
+		Session session = HibernateUtil.getSession();
+		
 		try {
 			session.beginTransaction();
 			
@@ -107,7 +116,10 @@ public class MarkerDAOImpl extends DAOImpl<Marker> {
 			
 			ex.printStackTrace();
 		}
-		session.close();
+		
+		if (session.isOpen()) {
+			session.close();
+		}
 		
 		return markers;
 	}

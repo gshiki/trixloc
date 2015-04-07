@@ -35,6 +35,10 @@ public class MarkerController {
 	@Autowired
 	private TagService serviceTag;
 	
+	
+	/* ********************************************************************************************************* */
+	/* 												CADASTROS													 */
+	/* ********************************************************************************************************* */
 	@RequestMapping(value = "/register", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody String regsiterMarker(HttpServletRequest req, HttpServletResponse res) {
 		String paramsSTR = req.getParameter("params-json");
@@ -84,6 +88,10 @@ public class MarkerController {
 		return JSONValue.toJSONString(jsonMapping);
 	}
 	
+	
+	/* ********************************************************************************************************* */
+	/* 												LISTAGEM													 */
+	/* ********************************************************************************************************* */
 	@RequestMapping(value = "/list", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody String listMarkers(HttpServletRequest req, HttpServletResponse res) {
 		String paramsSTR = req.getParameter("params-json");
@@ -115,6 +123,43 @@ public class MarkerController {
 			jsonMapping.put("param-list", markersSTR.toString());
 		} catch (ParseException e) {
 			e.printStackTrace();
+		}
+		return JSONValue.toJSONString(jsonMapping);
+	}
+	
+	
+	/* ********************************************************************************************************* */
+	/* 												EXCLUSAO													 */
+	/* ********************************************************************************************************* */
+	@RequestMapping(value = "/delete", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	public @ResponseBody String deleteMarker(HttpServletRequest req, HttpServletResponse res) {
+		String paramsSTR = req.getParameter("params-json");
+		
+		Map<String, String> jsonMapping = new HashMap<String, String>();
+		
+		try {
+			if ( Util.validateParam(paramsSTR) ) {
+				JSONParser jsonParser = new JSONParser();
+				JSONObject paramsJSON = (JSONObject) jsonParser.parse(paramsSTR);
+				
+				String action = (String) paramsJSON.get("param-action");
+				int markerID = Integer.parseInt( (String) paramsJSON.get("param-id") );
+				
+				if ("delete".equals(action) && markerID > -1) {
+					Marker marker = serviceMarker.findById(markerID);
+					
+					if (marker != null && serviceMarker.delete(marker)) {
+						jsonMapping.put("param-response", "deleted");
+						jsonMapping.put("param-id", String.valueOf(markerID));
+					}
+				} else {
+					jsonMapping.put("param-response", "failed");
+				}
+			}
+		} catch (ParseException e) {
+			e.printStackTrace();
+			
+			jsonMapping.put("param-response", "failed");
 		}
 		return JSONValue.toJSONString(jsonMapping);
 	}

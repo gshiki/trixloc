@@ -1,7 +1,6 @@
 package br.com.trixloc.dao.impl;
 
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 
 import br.com.trixloc.dao.DAO;
 import br.com.trixloc.util.HibernateUtil;
@@ -9,8 +8,8 @@ import br.com.trixloc.util.HibernateUtil;
 public abstract class DAOImpl<T> implements DAO<T> {
 	
 	public void save(T obj) {
-		SessionFactory sf = HibernateUtil.getSessionFactory();
-		Session session = sf.openSession();
+		Session session = HibernateUtil.getSession();
+		
 		try {
 			session.beginTransaction();
 			
@@ -22,11 +21,14 @@ public abstract class DAOImpl<T> implements DAO<T> {
 			
 			ex.printStackTrace();
 		}
+		if (session.isOpen()) {
+			session.close();
+		}
 	}
 	
 	public void update(T obj) {
-		SessionFactory sf = HibernateUtil.getSessionFactory();
-		Session session = sf.openSession();
+		Session session = HibernateUtil.getSession();
+		
 		try {
 			session.beginTransaction();
 			
@@ -38,11 +40,14 @@ public abstract class DAOImpl<T> implements DAO<T> {
 			
 			ex.printStackTrace();
 		}
+		if (session.isOpen()) {
+			session.close();
+		}
 	}
 
 	public void delete(T obj) {
-		SessionFactory sf = HibernateUtil.getSessionFactory();
-		Session session = sf.openSession();
+		Session session = HibernateUtil.getSession();
+		
 		try {
 			session.beginTransaction();
 			
@@ -53,6 +58,9 @@ public abstract class DAOImpl<T> implements DAO<T> {
 			session.getTransaction().rollback();
 			
 			ex.printStackTrace();
+		}
+		if (session.isOpen()) {
+			session.close();
 		}
 	}
 

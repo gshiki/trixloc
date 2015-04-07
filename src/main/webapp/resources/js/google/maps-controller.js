@@ -94,6 +94,22 @@ function closeAllMarkersWindows() {
 }
 
 /**
+ * Retorna o nome de um marcador a partir de um ID.
+ * @param id
+ * @returns {String}
+ */
+function getMarkerName(id) {
+	for (var indexFind = 0; indexFind < markers.length; indexFind++) {
+		var findMarker = markers[indexFind];
+		
+		if (findMarker.id == id) {
+			return findMarker.name;
+		}
+	}
+	return '';
+}
+
+/**
  * Retorna um array dos marcadores por nome.
  * @param name
  * @returns {Array}
@@ -250,6 +266,44 @@ function registerMarker(event) {
 
 
 /* ************************************************************************************************* */
+/* 											   ACTION DELETE										 */
+/* ************************************************************************************************* */
+/**
+ * Remove um marcador do mapa.
+ * @param event
+ */
+function removeMarker(event) {
+	var $elementButtonFired = $(event.data.elementFired);
+	
+	if (exists($elementButtonFired) && confirm( _t('msg.confirm.delete', { marker : getMarkerName(id) }) )) {
+		var id = $elementButtonFired.attr('item-id');
+		var data = {};
+		
+		data['param-action'] = 'delete';
+		data['param-id'] = id;
+		
+		if (data) {
+			$.ajax({
+				url : '/TrixLoc/marker/delete',
+				type : 'post',
+				data : 'params-json=' + JSON.stringify(data),
+				
+				error: function(xhr, errorType, exception) {
+					handleError(xhr, errorType, exception);
+				},
+				fail: function(data) {
+					handleFailed(data);
+				},
+				success : function(data) {
+					handleDeleteMarker(data);
+				}
+			});
+		}
+	}
+}
+
+
+/* ************************************************************************************************* */
 /* ************************************************************************************************* */
 /* 									     		HANDLERS											 */
 /* ************************************************************************************************* */
@@ -320,6 +374,8 @@ function handleListMarkers(data) {
 			var jsonList = JSON.parse(data['param-list']);
 			
 			if (jsonList.length) {
+				markers = new Array();
+				
 				for(var index = 0; index < jsonList.length; index++) {
 				    var marker = jsonList[index];
 				    
@@ -356,8 +412,7 @@ function handleListMarkers(data) {
 				    
 				    markers.push(markerOBJ);
 				}
-				
-				reinitMapMarkers();
+				reinitMap();
 			}
 		} else {
 			var message = new MessagePopup( _t('msg.error.generic'), 'warning');
@@ -365,5 +420,40 @@ function handleListMarkers(data) {
 			messages.push(message);
 		}
 		showMessageMapPopup(messages);
+	}
+}
+
+/**
+ * Gerencia o evento de exclusao de marcador.
+ * @param data
+ */
+function handleDeleteMarker(data) {
+	if (data) {
+		var response = data['param-response'];
+		var messages = [];
+
+		if (response == 'deleted') {
+			var deletedID = data['param-id'];
+			
+			if (deletedID) {
+				var indexMarker = -1;
+				
+				for (var indexToDelete = 0; indexToDelete < markers.length; indexToDelete++) {
+					var markerToDelete = markers[indexToDelete];
+					
+					if (markerToDelete.id == deletedID) {
+						indexMarker = indexToDelete;
+						
+						break;
+					}
+				}
+				
+				if (indexToDelete > -1) {
+					markers.splice(indexToDelete, 1);
+					
+					reinitMap();
+				}
+			}
+		}
 	}
 }

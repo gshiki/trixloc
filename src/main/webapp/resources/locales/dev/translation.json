@@ -51,15 +51,20 @@
 	},
 	
 	"msg": {
-		"success": {
-			"register" : "Location registered with success!"
+		"confirm": {
+			"edit" : "Are you sure you want to edit this location __marker__ ?",
+			"delete" : "Are you sure you want to delete this location __marker__ ?"
 		},
-	
+		
 		"error": {
 			"address" : "We had a problem trying to get the address.",
 			"generic" : "Ops! We had a problem with this last operation! Please try again in a moment.",
 			"list" : "Sorry, there was an error trying to get the List! Please try again in a moment.",
 			"register" : "Sorry, there was an error trying to register this location! Please try again in a moment."
+		},
+	
+		"success": {
+			"register" : "Location registered with success!"
 		}
 	},
 	

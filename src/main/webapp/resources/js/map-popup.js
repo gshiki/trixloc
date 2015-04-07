@@ -38,7 +38,7 @@ function initAction($elementAction) {
 		} else if (action == 'edit') {
 			$elementAction.click( function() { alert('EDITAR') } );
 		} else if (action == 'delete') {
-			$elementAction.click( function() { alert('EXCLUIR') } );
+			$elementAction.click( { elementFired : $elementAction }, removeMarker );
 		}
 	}
 }

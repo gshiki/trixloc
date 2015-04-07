@@ -2,6 +2,7 @@ package br.com.trixloc.util;
 
 import java.io.File;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -31,6 +32,10 @@ public class HibernateUtil {
 			sessionFactory = createSessionFactory();
 		}
 	    return sessionFactory;
+	}
+	
+	public static Session getSession() {
+		return sessionFactory.getCurrentSession();
 	}
 }
 
